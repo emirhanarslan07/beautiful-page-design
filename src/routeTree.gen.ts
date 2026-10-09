@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnalitikRouteImport } from './routes/analitik'
+import { Route as AyarlarRouteImport } from './routes/ayarlar'
+import { Route as MagazamRouteImport } from './routes/magazam'
+import { Route as MusterilerRouteImport } from './routes/musteriler'
+import { Route as RandevularRouteImport } from './routes/randevular'
+import { Route as SiparislerRouteImport } from './routes/siparisler'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AnalitikRoute = AnalitikRouteImport.update({
+  id: '/analitik',
+  path: '/analitik',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AyarlarRoute = AyarlarRouteImport.update({
+  id: '/ayarlar',
+  path: '/ayarlar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MagazamRoute = MagazamRouteImport.update({
+  id: '/magazam',
+  path: '/magazam',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MusterilerRoute = MusterilerRouteImport.update({
+  id: '/musteriler',
+  path: '/musteriler',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RandevularRoute = RandevularRouteImport.update({
+  id: '/randevular',
+  path: '/randevular',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SiparislerRoute = SiparislerRouteImport.update({
+  id: '/siparisler',
+  path: '/siparisler',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analitik': typeof AnalitikRoute
+  '/ayarlar': typeof AyarlarRoute
+  '/magazam': typeof MagazamRoute
+  '/musteriler': typeof MusterilerRoute
+  '/randevular': typeof RandevularRoute
+  '/siparisler': typeof SiparislerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analitik': typeof AnalitikRoute
+  '/ayarlar': typeof AyarlarRoute
+  '/magazam': typeof MagazamRoute
+  '/musteriler': typeof MusterilerRoute
+  '/randevular': typeof RandevularRoute
+  '/siparisler': typeof SiparislerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analitik': typeof AnalitikRoute
+  '/ayarlar': typeof AyarlarRoute
+  '/magazam': typeof MagazamRoute
+  '/musteriler': typeof MusterilerRoute
+  '/randevular': typeof RandevularRoute
+  '/siparisler': typeof SiparislerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/analitik'
+    | '/ayarlar'
+    | '/magazam'
+    | '/musteriler'
+    | '/randevular'
+    | '/siparisler'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/analitik'
+    | '/ayarlar'
+    | '/magazam'
+    | '/musteriler'
+    | '/randevular'
+    | '/siparisler'
+  id:
+    | '__root__'
+    | '/'
+    | '/analitik'
+    | '/ayarlar'
+    | '/magazam'
+    | '/musteriler'
+    | '/randevular'
+    | '/siparisler'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalitikRoute: typeof AnalitikRoute
+  AyarlarRoute: typeof AyarlarRoute
+  MagazamRoute: typeof MagazamRoute
+  MusterilerRoute: typeof MusterilerRoute
+  RandevularRoute: typeof RandevularRoute
+  SiparislerRoute: typeof SiparislerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/analitik': {
+      id: '/analitik'
+      path: '/analitik'
+      fullPath: '/analitik'
+      preLoaderRoute: typeof AnalitikRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ayarlar': {
+      id: '/ayarlar'
+      path: '/ayarlar'
+      fullPath: '/ayarlar'
+      preLoaderRoute: typeof AyarlarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/magazam': {
+      id: '/magazam'
+      path: '/magazam'
+      fullPath: '/magazam'
+      preLoaderRoute: typeof MagazamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/musteriler': {
+      id: '/musteriler'
+      path: '/musteriler'
+      fullPath: '/musteriler'
+      preLoaderRoute: typeof MusterilerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/randevular': {
+      id: '/randevular'
+      path: '/randevular'
+      fullPath: '/randevular'
+      preLoaderRoute: typeof RandevularRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/siparisler': {
+      id: '/siparisler'
+      path: '/siparisler'
+      fullPath: '/siparisler'
+      preLoaderRoute: typeof SiparislerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalitikRoute: AnalitikRoute,
+  AyarlarRoute: AyarlarRoute,
+  MagazamRoute: MagazamRoute,
+  MusterilerRoute: MusterilerRoute,
+  RandevularRoute: RandevularRoute,
+  SiparislerRoute: SiparislerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
